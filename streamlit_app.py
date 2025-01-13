@@ -1,7 +1,7 @@
 
 from PIL import Image
 import google.generativeai as genai
-
+import config
 import streamlit as st
 from streamlit_drawable_canvas import *
 import streamlit.components.v1 as components
@@ -41,7 +41,7 @@ def get_image_canvas():
 def evaluate(image):
     
     global model
-    genai.configure(api_key='AIzaSyBKJMlo6CU6-DIfAT8WFaHBn_MplihXyQQ')  
+    genai.configure(api_key=config.api_key)  
     model = genai.GenerativeModel(model_name='gemini-1.5-flash')
 
     prompt = f"Analyze the image and solve it mathematically and keep the answer short and still explains it, and explain it in a step by step process. {user_input}"
