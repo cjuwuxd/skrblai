@@ -85,6 +85,8 @@ def studentUnlock(question):
             st.success("Correct!")
             config.uses = 2
             config.lock = False
+            config.exampleQuestion = " "
+            config.history = " "
         else:
             st.error("That is incorrect. Please try again!")
 
