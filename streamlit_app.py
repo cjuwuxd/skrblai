@@ -8,7 +8,7 @@ import streamlit.components.v1 as components
 
 genai.configure(api_key=config.api_key)  
 model = genai.GenerativeModel(model_name='gemini-1.5-flash')
-st.set_page_config(page_title="SKRBL.ai", layout="wide", page_icon="✍️",)
+st.set_page_config(page_title="SKRBL.ai", layout="centered", page_icon="✍️",)
 st.title("SKRBL.ai")
 
 
