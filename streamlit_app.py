@@ -134,5 +134,5 @@ if __name__ == "__main__":
     try:
         get_image_canvas()
     except TypeError:
-        print("Error:" + TypeError)
+        pass
     
