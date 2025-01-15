@@ -16,7 +16,7 @@ st.title("SKRBL.ai")
 stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
 stroke_color = st.sidebar.color_picker("Stroke color: ", "#ffffff")
 fill_color = "#000000"
-width = 1000
+width = 700
 height = 500
 
 canvas_result = st_canvas(
@@ -31,7 +31,7 @@ canvas_result = st_canvas(
 canvas_result = canvas_result.image_data
 
 def defaultVariables():
-    config.uses = 2
+    config.uses = 15
     config.lock = False
     config.exampleQuestion = " "
     config.history = " "
