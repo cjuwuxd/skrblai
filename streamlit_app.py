@@ -7,14 +7,9 @@ import streamlit.components.v1 as components
 import time
 import threading
 
-themeX = {
-    "base": "dark",
-    "primaryColor": "#00ff00" 
-}
-
 genai.configure(api_key=config.api_key)  
 model = genai.GenerativeModel(model_name='gemini-1.5-flash')
-st.set_page_config(page_title="SKRBL.ai", layout="centered", page_icon="✍️", theme=themeX )
+st.set_page_config(page_title="SKRBL.ai", layout="centered", page_icon="✍️")
 st.title("SKRBL.ai")
 
 
