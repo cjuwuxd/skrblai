@@ -7,9 +7,15 @@ import streamlit.components.v1 as components
 import time
 import threading
 
+theme = {
+    "base": "dark",
+    "primaryColor": "#40da16",
+    "font": "monospace"
+}
+
 genai.configure(api_key=config.api_key)  
 model = genai.GenerativeModel(model_name='gemini-1.5-flash')
-st.set_page_config(page_title="SKRBL.ai", layout="centered", page_icon="✍️",)
+st.set_page_config(page_title="SKRBL.ai", layout="centered", page_icon="✍️", theme=theme)
 st.title("SKRBL.ai")
 
 
