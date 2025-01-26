@@ -7,7 +7,6 @@ import streamlit.components.v1 as components
 import time
 import threading
 import numpy as np
-from streamlit_back_camera_input import back_camera_input
 
 theme = {
     "base": "dark",
@@ -46,7 +45,7 @@ def SKRBL_main():
 
 def SKRBL_cam():
     cam_mode = st.checkbox("Enable Camera")
-    picture = st.back_camera_input("SKRBL your question!" , disabled=not cam_mode)
+    picture = st.camera_input("SKRBL your question!" , disabled=not cam_mode)
 
     if picture is not None:
         img = Image.open(picture)
