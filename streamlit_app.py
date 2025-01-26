@@ -7,6 +7,7 @@ import streamlit.components.v1 as components
 import time
 import threading
 import numpy as np
+from streamlit-back-camera-input import back_camera_input
 
 theme = {
     "base": "dark",
