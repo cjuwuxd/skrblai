@@ -45,7 +45,7 @@ def SKRBL_main():
 
 def SKRBL_cam():
     cam_mode = st.checkbox("Enable Camera")
-    picture = st.camera_input("SKRBL your question!" , disabled=not cam_mode)
+    picture = st.camera_input("SKRBL your question!" , disabled=not cam_mode, key="back_camera")
 
     if picture is not None:
         img = Image.open(picture)
