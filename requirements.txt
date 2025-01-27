@@ -1,4 +1,3 @@
 streamlit
 google.generativeai
 streamlit_drawable_canvas
-streamlit_back_camera_input
