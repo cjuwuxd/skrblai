@@ -66,9 +66,13 @@ def get_image_canvas(canvas_result):
 
 
 def evaluate(image):
+    #commands
     if user_input == "/skibidi":
         config.uses += 999
-        
+
+    elif user_input == "/unskibidi":
+        config.uses = 5
+
     if config.mode == 1:
         global model
         
