@@ -66,7 +66,7 @@ def get_image_canvas(canvas_result):
 
 
 def evaluate(image):
-    if user_input = "/skibidi":
+    if user_input == "/skibidi":
         config.uses += 999
         
     if config.mode == 1:
