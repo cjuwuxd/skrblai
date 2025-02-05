@@ -25,8 +25,8 @@ stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
 stroke_color = st.sidebar.color_picker("Stroke color: ", "#ffffff")
 
 fill_color = "#000000"
-width = 800
-height = 500
+width = 1080
+height = 720
 
 def SKRBL_main():
     global canvas_result
