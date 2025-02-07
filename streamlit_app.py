@@ -14,8 +14,8 @@ theme = {
     "primaryColor": "#40da16",
     "font": "monospace"
 }
-width = 1080
-height = 720
+width = 1920
+height = 1080
 layout = "wide"
 genai.configure(api_key=config.api_key)  
 model = genai.GenerativeModel(model_name='gemini-2.0-flash')
@@ -25,16 +25,8 @@ st.title("SKRBL.ai")
 tab1, tab2 = st.tabs(["SKRBL Mode", "Capture Mode"])
 
 
-phone = st.sidebar.toggle("XL Mode")
+#phone = st.sidebar.toggle("XL Mode")
 
-if phone:
-    #layout = "centered"
-    width = 1920
-    height = 1080
-
-else:
-    width = 1080
-    height = 720
 
 def SKRBL_main():
     config.mode = 1
