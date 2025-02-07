@@ -44,7 +44,7 @@ def SKRBL_main():
             fill_color="#000000",
             width=width,
             height=height,
-            drawing_mode=drawing_mode,
+            drawing_mode=draw_mode,
             key="full_app"
         )
 
