@@ -16,16 +16,16 @@ theme = {
 }
 width = 1080
 height = 720
-
+layout = "wide"
 genai.configure(api_key=config.api_key)  
 model = genai.GenerativeModel(model_name='gemini-2.0-flash')
 st.set_page_config(page_title="SKRBL.ai", layout=layout, page_icon="✍️")
 st.title("SKRBL.ai")
 
 tab1, tab2 = st.tabs(["SKRBL Mode", "Capture Mode"])
-layout = "wide"
 
-phone = st.sidebar.toggle("Mobile Mode", key="center", value=st.session_state.get("center", False))
+
+phone = st.sidebar.toggle("Mobile Mode")
 
 if phone:
     layout = "centered"
