@@ -28,7 +28,7 @@ width = 1080
 height = 720
 
 def SKRBL_main():
-
+    config.mode = 1
     draw_mode = st.sidebar.selectbox (
     "Drawing tool:", ("freedraw", "point", "line", "rect", "circle", "transform")
     )
@@ -58,6 +58,7 @@ def SKRBL_main():
     
 
 def SKRBL_cam():
+    config.mode = 2
     cam_mode = st.checkbox("Enable Camera")
     picture = st.camera_input("SKRBL your question!" , disabled=not cam_mode)
     
@@ -101,10 +102,14 @@ def evaluate(image):
         return response.text
 
     elif config.mode == 2:
-        pass
+        prompt = f"Analyze the image IF IT IS HANDWRITTEN, IF IT IS solve it mathematically and keep the answer short and still explains it, and explain it in a step by step process. {user_input} IF IT IS NOT HANDWRITTEN DO NOT ANSWER"
+        response = model.generate_content([prompt, image])
+        st.write_stream(stream(response.text))
 
-
-
+        print("Uses Remaining: "  + str(config.uses) )
+        print(response.text)
+        config.history = response.text
+        return response.text
 
 def handle_usage_limit(image):
     global model
