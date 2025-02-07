@@ -20,6 +20,18 @@ model = genai.GenerativeModel(model_name='gemini-2.0-flash')
 st.set_page_config(page_title="SKRBL.ai", layout="wide", page_icon="✍️")
 st.title("SKRBL.ai")
 
+tab1, tab2 = st.tabs(["SKRBL Mode", "Capture Mode"])
+
+try:
+    with tab1:
+        SKRBL_main()
+    
+    with tab2:
+        SKRBL_cam()
+
+except streamlit.errors.StreamlitDuplicateElementKey:
+    pass
+
 
 fill_color = "#000000"
 width = 1080
@@ -165,21 +177,8 @@ with col1:
 stroke_width = st.slider("Stroke width: ", 1, 25, 3)
 stroke_color = st.color_picker("Stroke color: ", "#ffffff")
 
-tab1, tab2 = st.tabs(["SKRBL Mode", "Capture Mode"])
-
-with tab1:
-    SKRBL_main()
-
-with tab2:
-    SKRBL_cam()
-page_names_to_func = {
-        "SKRBL Mode": SKRBL_main,
-        "Capture Mode": SKRBL_cam
-    }
 
 
-pages = st.sidebar.selectbox("Choose Mode",page_names_to_func.keys())    
-page_names_to_func[pages]()
    
 if __name__ == "__main__":
     #root = tk.Tk()
