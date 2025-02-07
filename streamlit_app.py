@@ -23,7 +23,7 @@ st.set_page_config(page_title="SKRBL.ai", layout=layout, page_icon="✍️")
 st.title("SKRBL.ai")
 
 tab1, tab2 = st.tabs(["SKRBL Mode", "Capture Mode"])
-layout = "centered"
+layout = "wide"
 if "center" not in st.session_state:
     layout = "wide"
     width = 400
