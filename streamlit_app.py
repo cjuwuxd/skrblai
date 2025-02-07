@@ -177,15 +177,13 @@ with col1:
 
 
 
-try:
-    with tab1:
-        SKRBL_main()
+with tab1:
+    SKRBL_main()
     
-    with tab2:
-        SKRBL_cam()
+with tab2:
+    SKRBL_cam()
 
-except:
-    pass
+
 
 
    
