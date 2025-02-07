@@ -14,16 +14,21 @@ theme = {
     "primaryColor": "#40da16",
     "font": "monospace"
 }
+layout = "wide"
 
 genai.configure(api_key=config.api_key)  
 model = genai.GenerativeModel(model_name='gemini-2.0-flash')
-st.set_page_config(page_title="SKRBL.ai", layout="wide", page_icon="✍️")
+st.set_page_config(page_title="SKRBL.ai", layout=layout, page_icon="✍️")
 st.title("SKRBL.ai")
 
 tab1, tab2 = st.tabs(["SKRBL Mode", "Capture Mode"])
 
+if "center" not in st.session_state:
+    layout = "wide"
+else:
+    layout = "centered" if st.session_state.center else "wide"
 
-
+phone = st.sidebar.toggle("Mobile Mode", key="center", value=st.session_state.get("center", False))
 width = 1080
 height = 720
 
@@ -38,14 +43,8 @@ def SKRBL_main():
     stroke_color = st.sidebar.color_picker("Stroke color: ", "#ffffff")
     bg_image = st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
 
-    phone = st.sidebar.toggle("Mobile Mode")
-    if phone: 
-        width = 400
-        height = 400
-
-    else:
-        width = 1080
-        height = 720
+    
+   
     global canvas_result
     canvas_result = st_canvas(
             stroke_width=stroke_width,
