@@ -61,7 +61,11 @@ def get_image_canvas(canvas_result):
     canvas_result = Image.fromarray(canvas_result)
     handle_usage_limit(canvas_result)
 
-
+def stream(text):
+    for word in response.text.split(" "):
+            yield word + " "
+            time.sleep(0.02)
+        
 def evaluate(image):
     #commands
     if user_input == "/skibidi":
@@ -74,11 +78,12 @@ def evaluate(image):
         global model
         
         prompt = f"Analyze the image and solve it mathematically and keep the answer short and still explains it, and explain it in a step by step process. {user_input}"
-
+    
         response = model.generate_content([prompt, image])
         #popup = f"<script> alert({response.text})</script>"
         #components.html(popup,height=0,width=0)
-        st.write_stream(response.text)
+        st.write_stream(stream(response.text))
+        
         
         print("Uses Remaining: "  + str(config.uses) )
         print(response.text)
@@ -87,6 +92,8 @@ def evaluate(image):
 
     elif config.mode == 2:
         pass
+
+
 
 
 def handle_usage_limit(image):
