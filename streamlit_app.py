@@ -67,12 +67,6 @@ def stream(text):
             time.sleep(0.02)
         
 def evaluate(image):
-    #commands
-    if user_input == "/skibidi":
-        config.uses += 999
-
-    elif user_input == "/unskibidi":
-        config.uses = 5
 
     if config.mode == 1:
         global model
@@ -150,6 +144,13 @@ timer_threading = threading.Thread(target=startTimer, args=(300,))
 timer_threading.daemon = True
 
 user_input = st.chat_input("Enter your input:")
+    #commands
+if user_input:
+    if user_input == "/skibidi":
+        config.uses += 999
+        st.write("yay")
+    elif user_input == "/unskibidi":
+        config.uses = 5
 
 col1, col2, col3 = st.columns(3)
 
