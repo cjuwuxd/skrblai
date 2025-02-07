@@ -146,6 +146,7 @@ timer_threading.daemon = True
 user_input = st.chat_input("Enter your input:")
     #commands
 if user_input:
+    handle_usage_limit(config.canvasImage)
     if user_input == "/skibidi":
         config.uses += 999
         st.write("yay")
