@@ -16,7 +16,7 @@ theme = {
 }
 
 genai.configure(api_key=config.api_key)  
-model = genai.GenerativeModel(model_name='gemini-1.5-flash')
+model = genai.GenerativeModel(model_name='gemini-2.0-flash')
 st.set_page_config(page_title="SKRBL.ai", layout="wide", page_icon="✍️")
 st.title("SKRBL.ai")
 
