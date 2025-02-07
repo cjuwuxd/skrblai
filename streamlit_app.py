@@ -29,7 +29,7 @@ try:
     with tab2:
         SKRBL_cam()
 
-except streamlit.errors.StreamlitDuplicateElementKey:
+except:
     pass
 
 
