@@ -26,8 +26,12 @@ tab1, tab2 = st.tabs(["SKRBL Mode", "Capture Mode"])
 
 if "center" not in st.session_state:
     layout = "wide"
+    width = 400
+    height = 400
 else:
     layout = "centered" if st.session_state.center else "wide"
+    width = 1080
+    height = 720
 
 phone = st.sidebar.toggle("Mobile Mode", key="center", value=st.session_state.get("center", False))
 width = 1080
