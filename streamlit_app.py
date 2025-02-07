@@ -22,15 +22,6 @@ st.title("SKRBL.ai")
 
 tab1, tab2 = st.tabs(["SKRBL Mode", "Capture Mode"])
 
-try:
-    with tab1:
-        SKRBL_main()
-    
-    with tab2:
-        SKRBL_cam()
-
-except:
-    pass
 
 
 fill_color = "#000000"
@@ -177,6 +168,16 @@ with col1:
 stroke_width = st.slider("Stroke width: ", 1, 25, 3)
 stroke_color = st.color_picker("Stroke color: ", "#ffffff")
 
+
+try:
+    with tab1:
+        SKRBL_main()
+    
+    with tab2:
+        SKRBL_cam()
+
+except:
+    pass
 
 
    
