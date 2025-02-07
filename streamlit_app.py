@@ -78,7 +78,7 @@ def evaluate(image):
         response = model.generate_content([prompt, image])
         #popup = f"<script> alert({response.text})</script>"
         #components.html(popup,height=0,width=0)
-        st.text_area(response.text)
+        st.latex(response.text)
         
         print("Uses Remaining: "  + str(config.uses) )
         print(response.text)
@@ -144,8 +144,6 @@ timer_threading.daemon = True
 
 user_input = st.chat_input("Enter your input:")
 
-form = st.form("form")
-
 col1, col2, col3 = st.columns(3)
 
 
@@ -155,8 +153,8 @@ with col1:
         
         
 
-stroke_width = form.slider("Stroke width: ", 1, 25, 3)
-stroke_color = form.color_picker("Stroke color: ", "#ffffff")
+stroke_width = st.slider("Stroke width: ", 1, 25, 3)
+stroke_color = st.color_picker("Stroke color: ", "#ffffff")
 
 
 page_names_to_func = {
