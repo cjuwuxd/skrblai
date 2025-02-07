@@ -24,24 +24,37 @@ tab1, tab2 = st.tabs(["SKRBL Mode", "Capture Mode"])
 
 
 
-fill_color = "#000000"
 width = 1080
 height = 720
 
 def SKRBL_main():
+
+    draw_mode = st.sidebar.selectbox (
+    "Drawing tool:", ("point", "freedraw", "line", "rect", "circle", "transform")
+    )
+    if draw_mode == "point":
+        point_display_radius = st.sidebar.slider("Point display radius: ", 1, 25, 3)
+    stroke_color = st.sidebar.color_picker("Stroke color hex: ")
+    stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
+    stroke_color = st.sidebar.color_picker("Stroke color: ", "#ffffff")
+    bg_image = st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
     global canvas_result
     canvas_result = st_canvas(
             stroke_width=stroke_width,
             stroke_color=stroke_color,
-            fill_color=fill_color,
+            fill_color="rgba(255, 165, 0, 0.3)",
+            background_image=Image.open(bg_image) if bg_image else None,
             width=width,
             height=height,
+            point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
+            drawing_mode=drawing_mode,
             key="full_app"
         )
 
     canvas_result = canvas_result.image_data
     canvas_result = Image.fromarray(canvas_result)
     config.canvasImage = canvas_result
+    
     
 
 def SKRBL_cam():
@@ -165,8 +178,6 @@ with col1:
         
         
 
-stroke_width = st.slider("Stroke width: ", 1, 25, 3)
-stroke_color = st.color_picker("Stroke color: ", "#ffffff")
 
 
 try:
