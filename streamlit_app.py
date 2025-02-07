@@ -47,7 +47,7 @@ def SKRBL_main():
             width=width,
             height=height,
             drawing_mode=draw_mode,
-            point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
+            point_display_radius=point_display_radius if draw_mode == 'point' else 0,
             key="full_app"
         )
 
