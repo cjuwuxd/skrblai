@@ -165,7 +165,13 @@ with col1:
 stroke_width = st.slider("Stroke width: ", 1, 25, 3)
 stroke_color = st.color_picker("Stroke color: ", "#ffffff")
 
+tab1, tab2 = st.tabs(["SKRBL Mode", "Capture Mode"])
 
+with tab1:
+    SKRBL_main()
+
+with tab2:
+    SKRBL_cam()
 page_names_to_func = {
         "SKRBL Mode": SKRBL_main,
         "Capture Mode": SKRBL_cam
