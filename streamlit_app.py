@@ -24,17 +24,13 @@ st.title("SKRBL.ai")
 
 tab1, tab2 = st.tabs(["SKRBL Mode", "Capture Mode"])
 layout = "wide"
-if "center" not in st.session_state:
-    layout = "wide"
-    width = 400
+
+phone = st.sidebar.toggle("Mobile Mode", key="center", value=st.session_state.get("center", False))
+
+if phone:
+    layout = "centered"
+    width = 300
     height = 400
-else:
-    layout = "centered" if st.session_state.center else "wide"
-    width = 1080
-    height = 720
-
-phone = st.sidebar.checkbox("Mobile Mode", key="center", value=st.session_state.get("center", False))
-
 
 def SKRBL_main():
     config.mode = 1
