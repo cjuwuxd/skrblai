@@ -37,7 +37,11 @@ def SKRBL_main():
     stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
     stroke_color = st.sidebar.color_picker("Stroke color: ", "#ffffff")
     bg_image = st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
-    
+
+    phone = st.sidebar.toggle("Mobile Mode")
+    if phone: 
+        width = 720
+        height = 400
     global canvas_result
     canvas_result = st_canvas(
             stroke_width=stroke_width,
