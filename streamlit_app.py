@@ -14,8 +14,8 @@ theme = {
     "primaryColor": "#40da16",
     "font": "monospace"
 }
-
-height = 1000
+width = 1080
+height = 720
 layout = "wide"
 genai.configure(api_key=config.api_key)  
 model = genai.GenerativeModel(model_name='gemini-2.0-flash')
