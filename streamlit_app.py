@@ -40,8 +40,12 @@ def SKRBL_main():
 
     phone = st.sidebar.toggle("Mobile Mode")
     if phone: 
-        width = 720
+        width = 400
         height = 400
+
+    elif not phone:
+        width = 1080
+        height = 720
     global canvas_result
     canvas_result = st_canvas(
             stroke_width=stroke_width,
