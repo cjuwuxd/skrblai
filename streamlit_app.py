@@ -43,7 +43,7 @@ def SKRBL_main():
         width = 400
         height = 400
 
-    elif not phone:
+    else:
         width = 1080
         height = 720
     global canvas_result
