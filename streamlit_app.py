@@ -30,21 +30,24 @@ height = 720
 def SKRBL_main():
 
     draw_mode = st.sidebar.selectbox (
-    "Drawing tool:", ("freedraw", "line", "rect", "circle", "transform")
+    "Drawing tool:", ("freedraw", "point", "line", "rect", "circle", "transform")
     )
-    
+    if drawing_mode == 'point':
+    point_display_radius = st.sidebar.slider("Point display radius: ", 1, 25, 3)
     stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
     stroke_color = st.sidebar.color_picker("Stroke color: ", "#ffffff")
-    
+    bg_image = st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
     
     global canvas_result
     canvas_result = st_canvas(
             stroke_width=stroke_width,
             stroke_color=stroke_color,
-            fill_color="#000000",
+            fill_color="rgba(255, 165, 0, 0.3)",
+            background_image=Image.open(bg_image) if bg_image else None,
             width=width,
             height=height,
             drawing_mode=draw_mode,
+            point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
             key="full_app"
         )
 
