@@ -15,7 +15,7 @@ theme = {
     "font": "monospace"
 }
 
-height = 500
+height = 1000
 layout = "wide"
 genai.configure(api_key=config.api_key)  
 model = genai.GenerativeModel(model_name='gemini-2.0-flash')
