@@ -33,7 +33,7 @@ else:
     width = 1080
     height = 720
 
-phone = st.sidebar.toggle("Mobile Mode", key="center", value=st.session_state.get("center", False))
+phone = st.sidebar.check_box("Mobile Mode", key="center", value=st.session_state.get("center", False))
 width = 1080
 height = 720
 
