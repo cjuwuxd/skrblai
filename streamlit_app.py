@@ -14,6 +14,7 @@ theme = {
     "primaryColor": "#40da16",
     "font": "monospace"
 }
+
 layout = "wide"
 
 genai.configure(api_key=config.api_key)  
