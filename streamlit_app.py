@@ -30,10 +30,9 @@ height = 720
 def SKRBL_main():
 
     draw_mode = st.sidebar.selectbox (
-    "Drawing tool:", ("point", "freedraw", "line", "rect", "circle", "transform")
+    "Drawing tool:", ("freedraw", "line", "rect", "circle", "transform")
     )
-    if draw_mode == "point":
-        point_display_radius = st.sidebar.slider("Point display radius: ", 1, 25, 3)
+    
     stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
     stroke_color = st.sidebar.color_picker("Stroke color: ", "#ffffff")
     
@@ -45,7 +44,6 @@ def SKRBL_main():
             fill_color="#000000",
             width=width,
             height=height,
-            point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
             drawing_mode=drawing_mode,
             key="full_app"
         )
