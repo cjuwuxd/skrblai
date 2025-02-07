@@ -80,7 +80,7 @@ def get_image_canvas(canvas_result):
 def stream(text):
     for word in text.split(" "):
             yield word + " "
-            time.sleep(0.02)
+            time.sleep(0.0025)
         
 def evaluate(image):
 
