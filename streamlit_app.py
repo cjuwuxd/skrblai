@@ -20,8 +20,9 @@ layout = "wide"
 genai.configure(api_key=config.api_key)  
 model = genai.GenerativeModel(model_name='gemini-2.0-flash')
 st.set_page_config(page_title="SKRBL.ai", layout=layout, page_icon="✍️")
-logo = "main/logo.png"
-st.logo(logo, icon_image=logo)
+
+
+st.logo("logo.png")
 st.title("SKRBL.ai")
 
 tab1, tab2 = st.tabs(["SKRBL Mode", "Capture Mode"])
