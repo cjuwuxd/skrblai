@@ -142,7 +142,7 @@ def startTimer(t):
 timer_threading = threading.Thread(target=startTimer, args=(300,))
 timer_threading.daemon = True
 
-user_input = st.text_input("Enter your input:")
+user_input = st.chat_input("Enter your input:")
 
 
 col1, col2, col3 = st.columns(3)
