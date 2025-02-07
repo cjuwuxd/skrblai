@@ -33,7 +33,7 @@ def SKRBL_main():
     "Drawing tool:", ("freedraw", "point", "line", "rect", "circle", "transform")
     )
     if drawing_mode == 'point':
-    point_display_radius = st.sidebar.slider("Point display radius: ", 1, 25, 3)
+        point_display_radius = st.sidebar.slider("Point display radius: ", 1, 25, 3)
     stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
     stroke_color = st.sidebar.color_picker("Stroke color: ", "#ffffff")
     bg_image = st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
