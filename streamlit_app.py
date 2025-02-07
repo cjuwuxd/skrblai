@@ -25,12 +25,12 @@ st.title("SKRBL.ai")
 tab1, tab2 = st.tabs(["SKRBL Mode", "Capture Mode"])
 
 
-phone = st.sidebar.toggle("Mobile Mode")
+phone = st.sidebar.toggle("XL Mode")
 
 if phone:
     layout = "centered"
-    width = 300
-    height = 400
+    width = 1920
+    height = 1080
 
 def SKRBL_main():
     config.mode = 1
