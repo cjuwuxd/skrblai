@@ -78,8 +78,7 @@ def evaluate(image):
         response = model.generate_content([prompt, image])
         #popup = f"<script> alert({response.text})</script>"
         #components.html(popup,height=0,width=0)
-        msg = st.chat_message("skrbl")
-        msg.write(response.text)
+        st.write_stream(response.text)
         
         print("Uses Remaining: "  + str(config.uses) )
         print(response.text)
