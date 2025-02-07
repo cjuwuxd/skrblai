@@ -78,7 +78,7 @@ def evaluate(image):
         response = model.generate_content([prompt, image])
         #popup = f"<script> alert({response.text})</script>"
         #components.html(popup,height=0,width=0)
-        st.success(response.text)
+        st.text_area(response.text)
         
         print("Uses Remaining: "  + str(config.uses) )
         print(response.text)
