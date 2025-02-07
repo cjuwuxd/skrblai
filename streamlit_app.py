@@ -34,10 +34,10 @@ def SKRBL_main():
     )
     if draw_mode == "point":
         point_display_radius = st.sidebar.slider("Point display radius: ", 1, 25, 3)
-    stroke_color = st.sidebar.color_picker("Stroke color hex: ")
     stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
     stroke_color = st.sidebar.color_picker("Stroke color: ", "#ffffff")
     bg_image = st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
+    
     global canvas_result
     canvas_result = st_canvas(
             stroke_width=stroke_width,
