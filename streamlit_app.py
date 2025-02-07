@@ -21,9 +21,6 @@ st.set_page_config(page_title="SKRBL.ai", layout="wide", page_icon="✍️")
 st.title("SKRBL.ai")
 
 
-stroke_width = st.slider("Stroke width: ", 1, 25, 3)
-stroke_color = st.color_picker("Stroke color: ", "#ffffff")
-
 fill_color = "#000000"
 width = 1080
 height = 720
@@ -156,6 +153,9 @@ with col1:
         handle_usage_limit(config.canvasImage)
         
         
+
+stroke_width = st.slider("Stroke width: ", 1, 25, 3)
+stroke_color = st.color_picker("Stroke color: ", "#ffffff")
 
 
 page_names_to_func = {
