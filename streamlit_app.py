@@ -47,7 +47,6 @@ def SKRBL_main():
             stroke_color=stroke_color,
             fill_color="rgba(255, 165, 0, 0.3)",
             background_image=Image.open(bg_image) if bg_image else None,
-            width=width,
             height=height,
             drawing_mode=draw_mode,
             point_display_radius=point_display_radius if draw_mode == 'point' else 0,
