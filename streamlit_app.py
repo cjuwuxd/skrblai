@@ -62,7 +62,7 @@ def get_image_canvas(canvas_result):
     handle_usage_limit(canvas_result)
 
 def stream(text):
-    for word in response.text.split(" "):
+    for word in text.split(" "):
             yield word + " "
             time.sleep(0.02)
         
