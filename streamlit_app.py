@@ -23,7 +23,7 @@ st.set_page_config(page_title="SKRBL.ai", layout=layout, page_icon="✍️")
 
 
 st.logo("logo.png")
-st.title("SKRBL.ai")
+#st.title("SKRBL.ai")
 st.image("logo.png")
 tab1, tab2 = st.tabs(["SKRBL Mode", "Capture Mode"])
 
