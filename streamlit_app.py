@@ -14,6 +14,7 @@ theme = {
     "primaryColor": "#40da16",
     "font": "monospace"
 }
+
 width = 1080
 height = 720
 layout = "wide"
@@ -64,7 +65,7 @@ def SKRBL_main():
     
 
 def SKRBL_cam():
-    config.mode = 2
+    config.mode = 1
     cam_mode = st.checkbox("Enable Camera")
     picture = st.camera_input("SKRBL your question!" , disabled=not cam_mode)
     
@@ -94,28 +95,41 @@ def evaluate(image):
     if config.mode == 1:
         global model
         
-        prompt = f"Analyze the image and solve it mathematically and keep the answer short and still explains it, and explain it in a step by step process. {user_input}"
+        prompt = f"Analyze the image and solve it mathematically and explain it in a step by step process. DO NOT SHOW THE ANSWER {user_input}"
     
         response = model.generate_content([prompt, image])
         #popup = f"<script> alert({response.text})</script>"
         #components.html(popup,height=0,width=0)
+        
         st.write_stream(stream(response.text))
         
         
         print("Uses Remaining: "  + str(config.uses) )
         print(response.text)
         config.history = response.text
+        
+
+            
         return response.text
 
     elif config.mode == 2:
-        prompt = f"Analyze the image IF IT IS HANDWRITTEN, IF IT IS solve it mathematically and keep the answer short and still explains it, and explain it in a step by step process. {user_input} IF IT IS NOT HANDWRITTEN DO NOT ANSWER"
-        response = model.generate_content([prompt, image])
-        st.write_stream(stream(response.text))
+        # prompt = f"Analyze the image IF IT IS HANDWRITTEN, IF IT IS solve it mathematically and keep the answer short and still explains it, and explain it in a step by step process. {user_input} IF IT IS NOT HANDWRITTEN DO NOT ANSWER"
+        # response = model.generate_content([prompt, image])
+        # st.write_stream(stream(response.text))
 
-        print("Uses Remaining: "  + str(config.uses) )
-        print(response.text)
-        config.history = response.text
-        return response.text
+        # print("Uses Remaining: "  + str(config.uses) )
+        # print(response.text)
+        # config.history = response.text
+        # return response.text
+        pass
+
+def show_answer(question):
+    print("hello")
+    prompt = f"What is the answer of this question?: {question}"
+    print(prompt)
+    response = model.generate_content([prompt])
+    print(response.text)
+    st.write_stream(stream(response.text))
 
 def handle_usage_limit(image):
     global model
@@ -187,6 +201,9 @@ with col1:
     if st.button("Calculate"):
         handle_usage_limit(config.canvasImage)
         
+with col2:
+    if st.button("Show Answer"):
+        show_answer(config.history)
         
 
 
