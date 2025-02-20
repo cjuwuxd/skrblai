@@ -5,3 +5,4 @@ history = ' '
 exampleQuestion = ' '
 mode = 1
 canvasImage = []
+answer_history = ' ' 
