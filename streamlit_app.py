@@ -95,22 +95,24 @@ def evaluate(image):
     if config.mode == 1:
         global model
         
-        prompt = f"Analyze the image and solve it mathematically explain it in a step-by-step process but DO NOT SHOW THE ANSWER EXPLAIN HOW TO SOLVE IT {user_input}"
-    
-        response = model.generate_content([prompt, image])
+        prompt_explain = f"Analyze the image and give another example on how to solve it.  {user_input}"
+        prompt_answer = f"Analyze the image and solve it mathematically and show the final answer.  {user_input}"
+
+        response_explain = model.generate_content([prompt_explain, image])
+        response_answer = model.generate_content([prompt_answer, image])
         #popup = f"<script> alert({response.text})</script>"
         #components.html(popup,height=0,width=0)
         
-        st.write_stream(stream(response.text))
+        st.write_stream(stream(response_explain.text))
         
         
         print("Uses Remaining: "  + str(config.uses) )
-        print(response.text)
-        config.history = response.text
-        
+        print(response_explain.text)
+        config.history = response_explain.text
+        config.answer_history = response_answer.text
 
             
-        return response.text
+        return response_explain.text
 
     elif config.mode == 2:
         # prompt = f"Analyze the image IF IT IS HANDWRITTEN, IF IT IS solve it mathematically and keep the answer short and still explains it, and explain it in a step by step process. {user_input} IF IT IS NOT HANDWRITTEN DO NOT ANSWER"
@@ -123,13 +125,8 @@ def evaluate(image):
         # return response.text
         pass
 
-def show_answer(question):
-    print("hello")
-    prompt = f"What is the answer of this question?: {question}"
-    print(prompt)
-    response = model.generate_content([prompt])
-    print(response.text)
-    st.write_stream(stream(response.text))
+def show_answer(answer):
+    st.write_stream(stream(answer))
 
 def handle_usage_limit(image):
     global model
@@ -185,7 +182,10 @@ timer_threading = threading.Thread(target=startTimer, args=(300,))
 timer_threading.daemon = True
 
 user_input = st.chat_input("Enter your input:")
+
+
     #commands
+
 if user_input:
     handle_usage_limit(config.canvasImage)
     if user_input == "/skibidi":
@@ -203,9 +203,8 @@ with col1:
         
 with col2:
     if st.button("Show Answer"):
-        show_answer(config.history)
+        show_answer(config.answer_history)
         
-
 
 
 with tab1:
