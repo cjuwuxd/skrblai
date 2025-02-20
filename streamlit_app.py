@@ -95,7 +95,7 @@ def evaluate(image):
     if config.mode == 1:
         global model
         
-        prompt_explain = f"Analyze the image and give another example on how to solve it.  {user_input}"
+        prompt_explain = f"Analyze the image, and explain how to solve it without giving the final answer.  {user_input}"
         prompt_answer = f"Analyze the image and solve it mathematically and show the final answer.  {user_input}"
 
         response_explain = model.generate_content([prompt_explain, image])
