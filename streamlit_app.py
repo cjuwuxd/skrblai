@@ -31,7 +31,14 @@ tab1, tab2 = st.tabs(["SKRBL Mode", "Capture Mode"])
 
 #phone = st.sidebar.toggle("XL Mode")
 
-st.html("<head> </head>")
+st.html("<head> <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script> <body> <amp-ad width="100vw" height="320"
+     type="adsense"
+     data-ad-client="ca-pub-6303161591224132"
+     data-ad-slot="2824818317"
+     data-auto-format="rspv"
+     data-full-width="">
+  <div overflow=""></div>
+</amp-ad> </body> </head>")
 
 def SKRBL_main():
     config.mode = 1
