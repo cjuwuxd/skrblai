@@ -31,7 +31,7 @@ tab1, tab2 = st.tabs(["SKRBL Mode", "Capture Mode"])
 
 #phone = st.sidebar.toggle("XL Mode")
 
-st.html(<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6303161591224132"
+st.html("<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6303161591224132"
      crossorigin="anonymous"></script>
 <!-- skrbl.ad -->
 <ins class="adsbygoogle"
@@ -42,7 +42,7 @@ st.html(<script async src="https://pagead2.googlesyndication.com/pagead/js/adsby
      data-full-width-responsive="true"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
-</script>)
+</script>")
 
 
 def SKRBL_main():
