@@ -18,7 +18,7 @@ theme = {
 width = 1080
 height = 720
 layout = "wide"
-genai.configure(api_key=config.api_key)  
+genai.configure(api_key=api_key)  
 model = genai.GenerativeModel(model_name='gemini-2.0-flash')
 st.set_page_config(page_title="SKRBL.ai", layout=layout, page_icon="✍️")
 
