@@ -8,7 +8,7 @@ import time
 import threading
 import numpy as np
 
-apiKey = st.secrets(["api_key"])
+apiKey = st.secrets("APIKEY")
 
 theme = {
     "base": "dark",
